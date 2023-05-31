@@ -24,7 +24,7 @@ port = "7579"
 ae = "KETIDGZ_earthquake"
 con = "web_scrapping"
 
-def post(value):
+def upload(value):
     keti_url = f'http://{host}:{port}/Mobius/{ae}/{con}'
     payload = f'{{\n    "m2m:cin": {{\n        "con": "{value}"\n    }}\n}}'.encode('utf-8')
     headers = {
@@ -89,7 +89,7 @@ def scraping():
             if origin != last_origin:
                 # Convert data format
                 value = scale + "|" + origin + "|" + magnitude
-                post(value)
+                upload(value)
                 last_origin = origin
                 logging('http post' + ' value: ' + value)
 

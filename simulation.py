@@ -19,8 +19,13 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 page_to_scrape = webdriver.Chrome(service=browser_driver, options=chrome_options)
 page_to_scrape.get(url)
 
+host = "203.253.128.177"
+port = "7579"
+ae = "KETIDGZ_earthquake"
+con = "web_scrapping"
+
 def post(value):
-    keti_url = "http://203.253.128.177:7579/Mobius/KETIDGZ_earthquake/web_scrapping"
+    keti_url = f'http://{host}:{port}/Mobius/{ae}/{con}'
     payload = f'{{\n    "m2m:cin": {{\n        "con": "{value}"\n    }}\n}}'.encode('utf-8')
     headers = {
         'Accept': 'application/json',
@@ -65,7 +70,9 @@ def scraping():
         time_value = time_element.text
 
         if not simulated_video and simulation_status:
+            # Simulated Video Activation button
             page_to_scrape.find_element(By.XPATH, '//*[@id="fold"]').click()
+            # Select historical earthquake cases
             page_to_scrape.find_element(By.XPATH, '//*[@id="body"]/div[5]/div/div[2]/div/ul/li[1]').click()
             logging('play simulated_video')
             time.sleep(30)
@@ -80,6 +87,7 @@ def scraping():
 
         if scale and origin and magnitude:
             if origin != last_origin:
+                # Convert data format
                 value = scale + "|" + origin + "|" + magnitude
                 post(value)
                 last_origin = origin

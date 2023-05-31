@@ -8,6 +8,6 @@ If an earthquake occurs in a region other than the last observed earthquake occu
 
 **Target Resource:** /Mobius/KETIDGZ_earthquake
 
-con: web_scarpping
+con: web_scrapping
 
 cin (format): **`scale + "|" + origin + "|" + magnitude`**

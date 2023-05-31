@@ -6,6 +6,8 @@ The website also provides simulated videos of past earthquake cases. For the sim
 
 If an earthquake occurs in a region other than the last observed earthquake occurrence area, data is uploaded to the Mobius platform.
 
-Target Resource: /Mobius/KETIDGZ_earthquake
-con: web_scrapping
+Target Resource: /Mobius/KETIDGZ_earthquake   
+con: web_scrapping   
 cin (format): **`scale + "|" + origin + "|" + magnitude`**
+
+Korea Meteorological Administration Site: https://www.weather.go.kr/pews/

@@ -44,8 +44,8 @@ def logging(msg):
 def get_connection():
     try:
         time.sleep(3)
-        ifame_element = page_to_scrape.find_element(By.ID, 'iframe')
-        page_to_scrape.switch_to.frame(ifame_element)
+        iframe_element = page_to_scrape.find_element(By.ID, 'iframe')
+        page_to_scrape.switch_to.frame(iframe_element)
         logging('connection success')
     except:
         logging('connection fail')
